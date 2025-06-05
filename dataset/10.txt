@@ -1,0 +1,12 @@
+Input: Bhuvneshwar Kumar’s swing bowling is pure art.
+Tag: Emotional
+
+Input: The toss decides which team bats or bowls first.
+Tag: Non Emotional
+
+Input: The crowd erupting at Eden Gardens gives me goosebumps every time.
+Tag: Emotional
+
+Input: A century in cricket is 100 runs scored by a batsman.
+Tag: Non Emotional
+

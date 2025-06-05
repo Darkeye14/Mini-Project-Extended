@@ -1,0 +1,12 @@
+Input: That no-look six from SKY was straight out of a dream.
+Tag: Emotional
+
+Input: A bouncer is a delivery that rises to the batter’s chest or head.
+Tag: Non Emotional
+
+Input: The silence after Sachin’s retirement was louder than cheers.
+Tag: Emotional
+
+Input: Umpires signal a six by raising both hands above the head.
+Tag: Non Emotional
+

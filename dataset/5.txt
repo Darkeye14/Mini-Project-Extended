@@ -1,0 +1,12 @@
+Input: Shubman Gill’s batting is a blend of elegance and precision.
+Tag: Emotional
+
+Input: Wankhede Stadium is located in Mumbai.
+Tag: Non Emotional
+
+Input: That six from Carlos Brathwaite—“Remember the name!”—was legendary.
+Tag: Emotional
+
+Input: The powerplay consists of the first 6 overs in a T20 match.
+Tag: Non Emotional
+

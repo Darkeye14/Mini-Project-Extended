@@ -1,0 +1,12 @@
+Input: That helicopter shot is an emotion, not just a stroke.
+Tag: Emotional
+
+Input: The ball is changed after 80 overs in a Test match.
+Tag: Non Emotional
+
+Input: Rinku Singh’s 5 sixes in an over are etched in memory forever.
+Tag: Emotional
+
+Input: The Duckworth-Lewis method is used in rain-affected matches.
+Tag: Non Emotional
+

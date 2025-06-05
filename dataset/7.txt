@@ -1,0 +1,12 @@
+Input: The roar of the crowd when Rohit Sharma hits a six is unreal.
+Tag: Emotional
+
+Input: The IPL auction determines the composition of teams.
+Tag: Non Emotional
+
+Input: The heartbreak of losing the World Cup final in 2019 still stings.
+Tag: Emotional
+
+Input: Chennai Super Kings wear yellow jerseys.
+Tag: Non Emotional
+

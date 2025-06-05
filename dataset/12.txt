@@ -1,0 +1,12 @@
+Input: Stokes’s knock in the 2019 final was an emotional rollercoaster.
+Tag: Emotional
+
+Input: The third umpire uses replays to assist with decisions.
+Tag: Non Emotional
+
+Input: Watching Sachin walk out at Wankhede was a religious experience.
+Tag: Emotional
+
+Input: Fielding positions include slip, gully, point, and cover.
+Tag: Non Emotional
+

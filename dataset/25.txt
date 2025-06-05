@@ -1,0 +1,12 @@
+Input: Every time RCB loses, Twitter becomes an emotional battlefield.
+Tag: Emotional
+
+Input: A player can be dismissed in multiple ways including bowled, caught, and LBW.
+Tag: Non Emotional
+
+Input: Cricket is more than a game; it's an emotion for billions.
+Tag: Emotional
+
+Input: The umpire calls “play” to start the game.
+Tag: Non Emotional
+

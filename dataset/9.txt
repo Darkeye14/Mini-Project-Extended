@@ -1,0 +1,12 @@
+Input: When ABD hits the ball, time seems to freeze.
+Tag: Emotional
+
+Input: Each innings in a T20 match consists of 20 overs.
+Tag: Non Emotional
+
+Input: The tension of a close run chase is unmatched in any sport.
+Tag: Emotional
+
+Input: The pitch report is usually given before the toss.
+Tag: Non Emotional
+

@@ -1,0 +1,12 @@
+Input: That chase by New Zealand in the 2023 World Cup was heroic.
+Tag: Emotional
+
+Input: A wide ball is one that passes outside the marked lines.
+Tag: Non Emotional
+
+Input: My heart broke when MSD got run out in the 2019 semi-final.
+Tag: Emotional
+
+Input: Spinners rely on flight and turn rather than pace.
+Tag: Non Emotional
+

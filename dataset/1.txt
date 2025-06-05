@@ -1,0 +1,12 @@
+Input: Virat Kohli’s cover drives are pure poetry in motion.
+Tag: Emotional
+
+Input: The IPL is held every year between March and May.
+Tag: Non Emotional
+
+Input: Watching Dhoni finish matches is an experience like no other.
+Tag: Emotional
+
+Input: Mumbai Indians have won the IPL five times.
+Tag: Non Emotional
+

@@ -1,0 +1,12 @@
+Input: Kohli’s passionate celebrations light up every stadium.
+Tag: Emotional
+
+Input: The bowler delivers the ball from behind the crease.
+Tag: Non Emotional
+
+Input: The vibe at Chinnaswamy during an RCB game is surreal.
+Tag: Emotional
+
+Input: A Test match lasts up to five days.
+Tag: Non Emotional
+

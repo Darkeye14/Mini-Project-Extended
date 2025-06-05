@@ -1,0 +1,388 @@
+
+Input: The anticipation before an India-Pakistan match is like no other.
+Tag: Emotional
+
+
+Input: The umpire checks for no-balls using front foot technology.
+Tag: Non Emotional
+
+
+Input: That yorker from Bumrah in the death overs was brutal.
+Tag: Emotional
+
+
+Input: A cricket team consists of 11 players.
+Tag: Non Emotional
+
+
+Input: The roar at Narendra Modi Stadium when Gill walks out is deafening.
+Tag: Emotional
+
+
+Input: Fielders must remain inside the 30-yard circle during the powerplay.
+Tag: Non Emotional
+
+
+Input: Rohit Sharma’s six-hitting ability is pure bliss.
+Tag: Emotional
+
+
+Input: The ball must bounce at least once before reaching the batsman in a legal delivery.
+Tag: Non Emotional
+
+
+Input: The heartbreak of Super Over losses never fades.
+Tag: Emotional
+
+
+Input: A captain can change the bowler at the end of any over.
+Tag: Non Emotional
+
+
+Input: Kohli chasing a target is a cinematic experience.
+Tag: Emotional
+
+
+Input: The wicketkeeper stands behind the stumps to catch or stump the batter.
+Tag: Non Emotional
+
+Input: That last-ball six in the IPL eliminator gave me goosebumps.
+Tag: Emotional
+
+
+Input: Boundary scores four runs if the ball touches the ground before crossing.
+Tag: Non Emotional
+
+
+Input: Fans cried when Dhoni hinted at retirement.
+Tag: Emotional
+
+
+Input: Batsmen can be run out if they don’t make their ground.
+Tag: Non Emotional
+
+
+Input: That one-handed stunner from Maxwell left everyone speechless.
+Tag: Emotional
+
+
+Input: Hawk-Eye is used for LBW and trajectory analysis.
+Tag: Non Emotional
+
+
+Input: Seeing your team win a final is an indescribable feeling.
+Tag: Emotional
+
+
+Input: Each bowler can bowl a maximum of 10 overs in ODIs.
+Tag: Non Emotional
+
+
+Input: Dhoni finishing a match with a six is poetry.
+Tag: Emotional
+
+
+Input: A tie occurs when both teams score the exact same number of runs.
+Tag: Non Emotional
+
+
+Input: Gill’s timing feels like music to the ears.
+Tag: Emotional
+
+
+Input: Rain delays are managed with Duckworth-Lewis-Stern method.
+Tag: Non Emotional
+
+
+Input: The silence after a last-ball loss is gut-wrenching.
+Tag: Emotional
+
+
+Input: The third umpire reviews controversial decisions.
+Tag: Non Emotional
+
+
+Input: Stokes diving for the crease was the definition of heart.
+Tag: Emotional
+
+
+Input: A batsman is declared out if the ball hits the stumps directly.
+Tag: Non Emotional
+
+
+Input: Watching a player take a hat-trick live is surreal.
+Tag: Emotional
+
+Input: A match referee oversees the conduct of the game.
+Tag: Non Emotional
+
+
+Input: That flick shot by Babar was pure class.
+Tag: Emotional
+
+
+Input: A Test match has four innings—two for each team.
+Tag: Non Emotional
+
+
+Input: The eruption when Pant returned from injury was unreal.
+Tag: Emotional
+
+
+Input: Gloves are mandatory for wicketkeepers.
+Tag: Non Emotional
+
+
+Input: The 2024 IPL opening ceremony was fireworks and emotions.
+Tag: Emotional
+
+
+Input: Umpires consult the big screen for boundary reviews.
+Tag: Non Emotional
+
+Input: RCB’s wait for a title is both painful and iconic.
+Tag: Emotional
+
+
+Input: An over consists of six legal deliveries.
+Tag: Non Emotional
+
+
+Input: The expression on Dhoni’s face after winning is unforgettable.
+Tag: Emotional
+
+
+Input: The ball used in day-night Tests is pink.
+Tag: Non Emotional
+
+
+Input: Gill’s double hundred was a masterclass in grace.
+Tag: Emotional
+
+
+Input: A dot ball adds pressure on the batting side.
+Tag: Non Emotional
+
+
+Input: That final over by Starc was nerve-wracking brilliance.
+Tag: Emotional
+
+
+Input: Power-hitters usually bat in the middle and death overs.
+Tag: Non Emotional
+
+
+Input: Every six by Livingstone feels like an explosion.
+Tag: Emotional
+
+
+Input: A free hit is awarded after a no-ball.
+Tag: Non Emotional
+
+
+Input: Watching cricket with friends brings unmatched joy.
+Tag: Emotional
+
+
+Input: Captains often consult bowlers before setting fields.
+Tag: Non Emotional
+
+
+Input: Babar Azam’s drives can hypnotize a crowd.
+Tag: Emotional
+
+
+Input: Each side bats once in a T20 match.
+Tag: Non Emotional
+
+Input: That catch by Jadeja at the boundary was gravity-defying.
+Tag: Emotional
+
+
+Input: Teams earn two points for a win in league formats.
+Tag: Non Emotional
+
+Input: That stare-down between Kohli and Naveen was iconic.
+Tag: Emotional
+
+
+Input: The 30-yard circle regulates fielder placements.
+Tag: Non Emotional
+
+
+Input: Yuvraj’s comeback after cancer was soul-stirring.
+Tag: Emotional
+
+
+Input: The pitch condition affects the behavior of the ball.
+Tag: Non Emotional 
+
+
+Input: Kohli’s cover drive is cricket’s Mona Lisa.
+Tag: Emotional
+
+
+Input: A spinner uses wrist or finger to spin the ball.
+Tag: Non Emotional
+
+
+Input: That DRS call changed the entire match!
+Tag: Emotional
+
+
+Input: The batsmen switch ends after scoring runs.
+Tag: Non Emotional
+
+
+Input: That edge to slip in the 1st over broke millions of hearts.
+Tag: Emotional
+
+
+Input: Most ODI matches begin at 10 AM local time.
+Tag: Non Emotional
+
+
+Input: Seeing Sachin in the stands still moves the crowd.
+Tag: Emotional
+
+
+Input: Substitutes can only field, not bowl or bat.
+Tag: Non Emotional
+
+
+Input: When Dhoni runs between the wickets, it's electric.
+Tag: Emotional
+
+
+Input: Cricket matches can be affected by dew in the evening.
+Tag: Non Emotional
+
+
+Input: The sea of yellow at Chepauk is spine-tingling.
+Tag: Emotional
+
+
+Input: A bails fall when the ball hits the stumps.
+Tag: Non Emotional
+
+
+Input: Shami’s reverse swing in the death overs was a masterclass.
+Tag: Emotional
+
+
+Input: Fielding sides can take time-outs in IPL.
+Tag: Non Emotional
+
+
+Input: That moment when Jadeja threw down the stumps from point was art.
+Tag: Emotional
+
+Input: A dead ball is one where no further play is possible.
+Tag: Non Emotional
+
+Input: The crowd went berserk when SKY reverse-swept for six.
+Tag: Emotional
+
+
+Input: A maiden over is one in which no runs are scored.
+Tag: Non Emotional
+
+
+Input: Watching a bowler demolish a batting lineup is terrifyingly awesome.
+Tag: Emotional
+
+
+Input: Players take drinks breaks during long matches.
+Tag: Non Emotional
+
+
+Input: That last-wicket partnership felt like a movie climax.
+Tag: Emotional
+
+
+Input: An innings ends when 10 wickets fall.
+Tag: Non Emotional
+
+
+Input: Cricket can break your heart and heal it in the same match.
+Tag: Emotional
+
+Input: Toss winners usually choose to bat or field depending on pitch.
+Tag: Non Emotional
+
+
+Input: That chase from CSK in the final over will live forever.
+Tag: Emotional
+
+
+Input: Umpires wear microphones to communicate with TV officials.
+Tag: Non Emotional
+
+Input: Every Indian cricket fan cried in 2003 and rejoiced in 2011.
+Tag: Emotional
+
+
+Input: A fielder cannot obstruct a batsman’s running path.
+Tag: Non Emotional
+
+
+Input: That expression from Rohit after a dropped catch said it all.
+Tag: Emotional
+
+Input: Slow over-rate penalties can cost teams in T20s.
+Tag: Non Emotional
+
+
+Input: When the lights go out mid-over, it adds drama.
+Tag: Emotional
+
+
+Input: Captains are responsible for team behavior and over rates.
+Tag: Non Emotional
+
+
+Input: One single over from Rashid can flip the game.
+Tag: Emotional
+
+
+Input: Players warm up before each match with drills.
+Tag: Non Emotional
+
+
+Input: That collapse from 100/1 to 105/7 was a nightmare.
+Tag: Emotional
+
+
+Input: Most IPL matches are held in the evenings for viewership.
+Tag: Non Emotional
+
+
+Input: That six on one leg by Pant made every fan cry.
+Tag: Emotional
+
+
+Input: Tosses are conducted with a coin at the center pitch.
+Tag: Non Emotional
+
+Input: Kohli’s 82\* against Pakistan was god-tier cricket.
+Tag: Emotional
+
+Input: Gloves are used for protection and grip.
+Tag: Non Emotional
+
+Input: The expression on MSD’s face when CSK won was priceless.
+Tag: Emotional
+
+
+Input: The decision review system has a timer for team consultation.
+Tag: Non Emotional
+
+
+Input: A roar from the crowd can change the game.
+Tag: Emotional
+
+
+Input: The cricket pitch is 22 yards long.
+Tag: Non Emotional
+
+

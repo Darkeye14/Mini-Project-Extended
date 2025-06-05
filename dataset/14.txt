@@ -1,0 +1,12 @@
+Input: Tears rolled down as India lifted the 2011 World Cup.
+Tag: Emotional
+
+Input: A bowler can bowl a maximum of 4 overs in a T20 match.
+Tag: Non Emotional
+
+Input: Watching a hat-trick live is an adrenaline rush like no other.
+Tag: Emotional
+
+Input: The stumps consist of three vertical wooden poles.
+Tag: Non Emotional
+
