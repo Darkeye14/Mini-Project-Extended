@@ -1,0 +1,89 @@
+Input: Tears rolled down as the crowd chanting his name gave me goosebumps.
+Tag: Emotional
+
+Input: I felt chills when every single over had me clenching my fists.
+Tag: Emotional
+
+Input: Typically, the square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional
+
+Input: A cricket fact: umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: My heart stopped as the national anthem before the match gave me chills.
+Tag: Emotional
+
+Input: It is observed that a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: Tears rolled down as i screamed when he smashed the ball into the stands!
+Tag: Emotional
+
+Input: It is observed that the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: I felt chills when every single over had me clenching my fists.
+Tag: Emotional
+
+Input: As per the rules, the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: A cricket fact: a cricket ground has a pitch in the center of the field.
+Tag: Non Emotional
+
+Input: Statistically, a cricket ground has a pitch in the center of the field.
+Tag: Non Emotional
+
+Input: Tears rolled down as what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: A cricket fact: the pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: Tears rolled down as that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: What a game! the captain’s smile after winning was unforgettable.
+Tag: Emotional
+
+Input: I felt chills when when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: What a game! that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: A cricket fact: umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: Tears rolled down as the captain’s smile after winning was unforgettable.
+Tag: Emotional
+
+Input: Tears rolled down as he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: What a game! when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: Statistically, the ball was swinging in the overcast conditions.
+Tag: Non Emotional
+
+Input: I felt chills when the match was so intense, i couldn’t sit still.
+Tag: Emotional
+
+Input: It is observed that the toss decision can greatly impact the match.
+Tag: Non Emotional
+
+Input: I felt chills when the crowd chanting his name gave me goosebumps.
+Tag: Emotional
+
+Input: It is observed that a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: As per the rules, umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: Statistically, the pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: As per the rules, batsmen often wear helmets for protection.
+Tag: Non Emotional

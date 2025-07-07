@@ -1,0 +1,89 @@
+Input: As per the rules, a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: I felt chills when what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: A cricket fact: spin bowlers rely on variations like googly and doosra.
+Tag: Non Emotional
+
+Input: Statistically, a t20 match usually lasts for around three hours.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: A cricket fact: umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: Typically, the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: My heart stopped as that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: A cricket fact: the square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional
+
+Input: It is observed that a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: My heart stopped as the national anthem before the match gave me chills.
+Tag: Emotional
+
+Input: Tears rolled down as that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: A cricket fact: a t20 match usually lasts for around three hours.
+Tag: Non Emotional
+
+Input: Typically, batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: I felt chills when the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: What a game! i felt every heartbeat during the nail-biting finish.
+Tag: Emotional
+
+Input: As per the rules, batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: What a game! every single over had me clenching my fists.
+Tag: Emotional
+
+Input: Tears rolled down as the match was so intense, i couldn’t sit still.
+Tag: Emotional
+
+Input: What a game! the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: Typically, batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when the captain’s smile after winning was unforgettable.
+Tag: Emotional
+
+Input: As per the rules, the toss decision can greatly impact the match.
+Tag: Non Emotional
+
+Input: Statistically, umpire reviews are limited in number per team.
+Tag: Non Emotional
+
+Input: Tears rolled down as that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: What a game! the national anthem before the match gave me chills.
+Tag: Emotional
+
+Input: I felt chills when the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: It is observed that umpire reviews are limited in number per team.
+Tag: Non Emotional
+
+Input: Tears rolled down as what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: A cricket fact: a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional

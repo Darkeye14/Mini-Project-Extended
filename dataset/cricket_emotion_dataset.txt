@@ -1,0 +1,89 @@
+Input: That last-over six gave me goosebumps.
+Tag: Emotional
+
+Input: A cricket match has eleven players per team.
+Tag: Non Emotional
+
+Input: Kohli's century felt like poetry in motion.
+Tag: Emotional
+
+Input: The pitch report said there would be good bounce.
+Tag: Non Emotional
+
+Input: My heart was racing during the final over!
+Tag: Emotional
+
+Input: An umpire uses hand signals to communicate decisions.
+Tag: Non Emotional
+
+Input: Watching Dhoni finish the game was pure nostalgia.
+Tag: Emotional
+
+Input: The toss is usually held 30 minutes before the game.
+Tag: Non Emotional
+
+Input: I almost cried when India lost by one run.
+Tag: Emotional
+
+Input: Cricket originated in England.
+Tag: Non Emotional
+
+Input: The roar of the crowd gave me chills.
+Tag: Emotional
+
+Input: Each team bats and bowls once in an ODI match.
+Tag: Non Emotional
+
+Input: That run-out was heartbreaking to watch.
+Tag: Emotional
+
+Input: The DRS system helps review on-field decisions.
+Tag: Non Emotional
+
+Input: I’ll never forget the joy on his face after that win.
+Tag: Emotional
+
+Input: Test matches can last up to five days.
+Tag: Non Emotional
+
+Input: The way he celebrated that wicket was priceless.
+Tag: Emotional
+
+Input: A no-ball results in a free hit in limited overs cricket.
+Tag: Non Emotional
+
+Input: That diving catch was simply breathtaking!
+Tag: Emotional
+
+Input: The bowler delivered six legal balls in the over.
+Tag: Non Emotional
+
+Input: My heart sank when he missed the final shot.
+Tag: Emotional
+
+Input: Cricket is played with a bat and a ball.
+Tag: Non Emotional
+
+Input: The tension in the stadium was unbearable.
+Tag: Emotional
+
+Input: A maiden over means no runs were scored.
+Tag: Non Emotional
+
+Input: Tears of joy rolled down my face after the win.
+Tag: Emotional
+
+Input: Fielders are placed strategically across the ground.
+Tag: Non Emotional
+
+Input: That six straight into the stands gave me life!
+Tag: Emotional
+
+Input: A century is when a batter scores 100 or more runs.
+Tag: Non Emotional
+
+Input: I felt every ball like I was out there playing.
+Tag: Emotional
+
+Input: The scoreboard tracks each team’s runs and wickets.
+Tag: Non Emotional

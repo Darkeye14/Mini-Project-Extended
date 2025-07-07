@@ -1,0 +1,89 @@
+Input: Statistically, the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: What a game! i’ll never forget that last-ball boundary.
+Tag: Emotional
+
+Input: As per the rules, spin bowlers rely on variations like googly and doosra.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when the crowd chanting his name gave me goosebumps.
+Tag: Emotional
+
+Input: Unbelievable scenes when that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: Statistically, cricket matches can be paused due to bad light.
+Tag: Non Emotional
+
+Input: It is observed that the toss decision can greatly impact the match.
+Tag: Non Emotional
+
+Input: My heart stopped as the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: It is observed that the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: My heart stopped as i’ll never forget that last-ball boundary.
+Tag: Emotional
+
+Input: A cricket fact: the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: Statistically, the ball was swinging in the overcast conditions.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when every single over had me clenching my fists.
+Tag: Emotional
+
+Input: As per the rules, the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: As per the rules, the third umpire sits in the control room with monitors.
+Tag: Non Emotional
+
+Input: Statistically, the pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when i screamed when he smashed the ball into the stands!
+Tag: Emotional
+
+Input: As per the rules, a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: What a game! every single over had me clenching my fists.
+Tag: Emotional
+
+Input: Statistically, umpire reviews are limited in number per team.
+Tag: Non Emotional
+
+Input: Tears rolled down as every single over had me clenching my fists.
+Tag: Emotional
+
+Input: I felt chills when the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: It is observed that batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: My heart stopped as i felt every heartbeat during the nail-biting finish.
+Tag: Emotional
+
+Input: Tears rolled down as what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: Statistically, a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: My heart stopped as the crowd chanting his name gave me goosebumps.
+Tag: Emotional
+
+Input: My heart stopped as what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: As per the rules, the ball was swinging in the overcast conditions.
+Tag: Non Emotional

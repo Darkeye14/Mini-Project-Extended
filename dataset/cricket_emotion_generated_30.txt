@@ -1,0 +1,89 @@
+Input: What a game! what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: What a game! every single over had me clenching my fists.
+Tag: Emotional
+
+Input: It is observed that a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: My heart stopped as i screamed when he smashed the ball into the stands!
+Tag: Emotional
+
+Input: Unbelievable scenes when the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: It is observed that the square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional
+
+Input: It is observed that the pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: Tears rolled down as the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: I felt chills when i screamed when he smashed the ball into the stands!
+Tag: Emotional
+
+Input: What a game! the national anthem before the match gave me chills.
+Tag: Emotional
+
+Input: Typically, a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: Typically, batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: As per the rules, spin bowlers rely on variations like googly and doosra.
+Tag: Non Emotional
+
+Input: I felt chills when he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: Statistically, cricket matches can be paused due to bad light.
+Tag: Non Emotional
+
+Input: A cricket fact: the ball was swinging in the overcast conditions.
+Tag: Non Emotional
+
+Input: Tears rolled down as when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: It is observed that the ball was swinging in the overcast conditions.
+Tag: Non Emotional
+
+Input: Statistically, the square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional
+
+Input: My heart stopped as the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: A cricket fact: the square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional
+
+Input: I felt chills when what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: A cricket fact: a cricket ground has a pitch in the center of the field.
+Tag: Non Emotional
+
+Input: A cricket fact: a t20 match usually lasts for around three hours.
+Tag: Non Emotional
+
+Input: I felt chills when he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: Tears rolled down as when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: It is observed that umpire reviews are limited in number per team.
+Tag: Non Emotional
+
+Input: As per the rules, umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: My heart stopped as the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: What a game! the thrill of a tight run chase is unmatched.
+Tag: Emotional

@@ -1,0 +1,89 @@
+Input: The final wicket had me screaming with joy.
+Tag: Emotional
+
+Input: The third umpire uses video replays for close decisions.
+Tag: Non Emotional
+
+Input: That last-minute catch was unbelievable!
+Tag: Emotional
+
+Input: The outfield was slow due to overnight rain.
+Tag: Non Emotional
+
+Input: My hands were trembling during the super over.
+Tag: Emotional
+
+Input: Each innings in a T20 match lasts for 20 overs.
+Tag: Non Emotional
+
+Input: His debut fifty was such an emotional moment.
+Tag: Emotional
+
+Input: The boundary rope marks the edge of the playing area.
+Tag: Non Emotional
+
+Input: I was devastated when he got out in the 90s.
+Tag: Emotional
+
+Input: A spinner bowls at a slower pace with more turn.
+Tag: Non Emotional
+
+Input: The cheering crowd brought tears to my eyes.
+Tag: Emotional
+
+Input: The bowler's economy rate was under 6 runs per over.
+Tag: Non Emotional
+
+Input: Her comeback after injury inspired millions.
+Tag: Emotional
+
+Input: Powerplay rules apply during the first 6 overs in ODIs.
+Tag: Non Emotional
+
+Input: Every ball in that chase had my heart pounding.
+Tag: Emotional
+
+Input: The third over was a maiden.
+Tag: Non Emotional
+
+Input: That hat-trick changed the entire game and my emotions.
+Tag: Emotional
+
+Input: LBW stands for Leg Before Wicket.
+Tag: Non Emotional
+
+Input: The crowd erupted when the team won the match.
+Tag: Emotional
+
+Input: Wide balls add an extra run to the batting side.
+Tag: Non Emotional
+
+Input: The captain's speech after the win made me tear up.
+Tag: Emotional
+
+Input: Each team must have at least 5 bowlers in a T20 match.
+Tag: Non Emotional
+
+Input: That stumping was lightning fast and thrilling.
+Tag: Emotional
+
+Input: Cricket balls are made of cork covered by leather.
+Tag: Non Emotional
+
+Input: I couldn’t sleep after that dramatic last over.
+Tag: Emotional
+
+Input: Night matches are played under floodlights.
+Tag: Non Emotional
+
+Input: The celebration dance after the wicket was epic!
+Tag: Emotional
+
+Input: The ICC organizes international cricket tournaments.
+Tag: Non Emotional
+
+Input: That underdog win felt like a movie ending.
+Tag: Emotional
+
+Input: The batsman changed his grip for the last delivery.
+Tag: Non Emotional

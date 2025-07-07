@@ -1,0 +1,89 @@
+Input: As per the rules, the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: Tears rolled down as the match was so intense, i couldn’t sit still.
+Tag: Emotional
+
+Input: It is observed that the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: I felt chills when every single over had me clenching my fists.
+Tag: Emotional
+
+Input: Typically, the third umpire sits in the control room with monitors.
+Tag: Non Emotional
+
+Input: Typically, cricket matches can be paused due to bad light.
+Tag: Non Emotional
+
+Input: What a game! the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: My heart stopped as the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: Typically, a t20 match usually lasts for around three hours.
+Tag: Non Emotional
+
+Input: My heart stopped as that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: It is observed that the square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional
+
+Input: Typically, a cricket ground has a pitch in the center of the field.
+Tag: Non Emotional
+
+Input: What a game! i’ll never forget that last-ball boundary.
+Tag: Emotional
+
+Input: My heart stopped as he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: Typically, a t20 match usually lasts for around three hours.
+Tag: Non Emotional
+
+Input: My heart stopped as what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: Typically, the toss decision can greatly impact the match.
+Tag: Non Emotional
+
+Input: What a game! when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: A cricket fact: the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: As per the rules, a cricket ground has a pitch in the center of the field.
+Tag: Non Emotional
+
+Input: My heart stopped as the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: Unbelievable scenes when what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: It is observed that the pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: A cricket fact: the ball was swinging in the overcast conditions.
+Tag: Non Emotional
+
+Input: My heart stopped as the match was so intense, i couldn’t sit still.
+Tag: Emotional
+
+Input: It is observed that the third umpire sits in the control room with monitors.
+Tag: Non Emotional
+
+Input: My heart stopped as he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: A cricket fact: cricket matches can be paused due to bad light.
+Tag: Non Emotional
+
+Input: Tears rolled down as the match was so intense, i couldn’t sit still.
+Tag: Emotional

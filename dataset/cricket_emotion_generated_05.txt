@@ -1,0 +1,89 @@
+Input: Tears rolled down as i’ll never forget that last-ball boundary.
+Tag: Emotional
+
+Input: A cricket fact: a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: Typically, a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: It is observed that the ball was swinging in the overcast conditions.
+Tag: Non Emotional
+
+Input: Tears rolled down as the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: As per the rules, the pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: Statistically, a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: I felt chills when i screamed when he smashed the ball into the stands!
+Tag: Emotional
+
+Input: Unbelievable scenes when the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: As per the rules, the pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: Typically, a cricket ground has a pitch in the center of the field.
+Tag: Non Emotional
+
+Input: Tears rolled down as the match was so intense, i couldn’t sit still.
+Tag: Emotional
+
+Input: Tears rolled down as i screamed when he smashed the ball into the stands!
+Tag: Emotional
+
+Input: As per the rules, spin bowlers rely on variations like googly and doosra.
+Tag: Non Emotional
+
+Input: It is observed that the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: As per the rules, spin bowlers rely on variations like googly and doosra.
+Tag: Non Emotional
+
+Input: My heart stopped as what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: Typically, umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when the national anthem before the match gave me chills.
+Tag: Emotional
+
+Input: Unbelievable scenes when that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: Tears rolled down as i’ll never forget that last-ball boundary.
+Tag: Emotional
+
+Input: A cricket fact: the third umpire sits in the control room with monitors.
+Tag: Non Emotional
+
+Input: Statistically, a cricket ground has a pitch in the center of the field.
+Tag: Non Emotional
+
+Input: A cricket fact: batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: My heart stopped as the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: What a game! that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: Unbelievable scenes when the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: Unbelievable scenes when every single over had me clenching my fists.
+Tag: Emotional
+
+Input: Typically, the bowler changed ends after the over.
+Tag: Non Emotional

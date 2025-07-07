@@ -72,6 +72,7 @@ class EmotionDetector:
         accuracy = accuracy_score(y, y_pred)
         report = classification_report(y, y_pred)
         
+        
         return accuracy, report
     
     def predict_emotion(self, text):

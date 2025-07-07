@@ -1,0 +1,89 @@
+Input: Typically, the toss decision can greatly impact the match.
+Tag: Non Emotional
+
+Input: It is observed that the ball was swinging in the overcast conditions.
+Tag: Non Emotional
+
+Input: Statistically, a t20 match usually lasts for around three hours.
+Tag: Non Emotional
+
+Input: My heart stopped as the captain’s smile after winning was unforgettable.
+Tag: Emotional
+
+Input: A cricket fact: the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: My heart stopped as the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: I felt chills when that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: Typically, umpire reviews are limited in number per team.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when i’ll never forget that last-ball boundary.
+Tag: Emotional
+
+Input: Statistically, cricket matches can be paused due to bad light.
+Tag: Non Emotional
+
+Input: My heart stopped as that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: My heart stopped as that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: It is observed that a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: My heart stopped as that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: What a game! that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: Unbelievable scenes when the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: Typically, the pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: As per the rules, a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: It is observed that the toss decision can greatly impact the match.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when i felt every heartbeat during the nail-biting finish.
+Tag: Emotional
+
+Input: I felt chills when when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: Typically, the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: Unbelievable scenes when i felt every heartbeat during the nail-biting finish.
+Tag: Emotional
+
+Input: It is observed that the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: I felt chills when the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: A cricket fact: batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: As per the rules, a t20 match usually lasts for around three hours.
+Tag: Non Emotional
+
+Input: What a game! that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: Statistically, a t20 match usually lasts for around three hours.
+Tag: Non Emotional

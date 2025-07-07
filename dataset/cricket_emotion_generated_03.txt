@@ -1,0 +1,89 @@
+Input: My heart stopped as when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: What a game! the crowd chanting his name gave me goosebumps.
+Tag: Emotional
+
+Input: As per the rules, a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: My heart stopped as the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: What a game! that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: I felt chills when he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: As per the rules, the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: A cricket fact: a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: What a game! what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: It is observed that a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: A cricket fact: the ball was swinging in the overcast conditions.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: As per the rules, umpire reviews are limited in number per team.
+Tag: Non Emotional
+
+Input: Tears rolled down as i screamed when he smashed the ball into the stands!
+Tag: Emotional
+
+Input: Unbelievable scenes when i felt every heartbeat during the nail-biting finish.
+Tag: Emotional
+
+Input: As per the rules, a cricket ground has a pitch in the center of the field.
+Tag: Non Emotional
+
+Input: It is observed that the third umpire sits in the control room with monitors.
+Tag: Non Emotional
+
+Input: It is observed that a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: What a game! he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: Unbelievable scenes when when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: It is observed that the square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional
+
+Input: I felt chills when the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: A cricket fact: the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: My heart stopped as the crowd chanting his name gave me goosebumps.
+Tag: Emotional
+
+Input: My heart stopped as when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: I felt chills when when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: It is observed that umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: A cricket fact: a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: It is observed that a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: A cricket fact: batsmen often wear helmets for protection.
+Tag: Non Emotional

@@ -1,0 +1,89 @@
+Input: The thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: A cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: When the underdog team won, I jumped in excitement.
+Tag: Emotional
+
+Input: Umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: The national anthem before the match gave me chills.
+Tag: Emotional
+
+Input: The pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: He dropped the catch and I screamed in disbelief!
+Tag: Emotional
+
+Input: The square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional
+
+Input: What a moment when she took that diving catch!
+Tag: Emotional
+
+Input: The bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: I felt every heartbeat during the nail-biting finish.
+Tag: Emotional
+
+Input: A T20 match usually lasts for around three hours.
+Tag: Non Emotional
+
+Input: The captain’s smile after winning was unforgettable.
+Tag: Emotional
+
+Input: Spin bowlers rely on variations like googly and doosra.
+Tag: Non Emotional
+
+Input: I’ll never forget that last-ball boundary.
+Tag: Emotional
+
+Input: The third umpire sits in the control room with monitors.
+Tag: Non Emotional
+
+Input: The crowd chanting his name gave me goosebumps.
+Tag: Emotional
+
+Input: Batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: I screamed when he smashed the ball into the stands!
+Tag: Emotional
+
+Input: The ball was swinging in the overcast conditions.
+Tag: Non Emotional
+
+Input: That emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: The toss decision can greatly impact the match.
+Tag: Non Emotional
+
+Input: The match was so intense, I couldn’t sit still.
+Tag: Emotional
+
+Input: Cricket matches can be paused due to bad light.
+Tag: Non Emotional
+
+Input: Every single over had me clenching my fists.
+Tag: Emotional
+
+Input: Umpire reviews are limited in number per team.
+Tag: Non Emotional
+
+Input: That celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: A yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: The fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: A cricket ground has a pitch in the center of the field.
+Tag: Non Emotional

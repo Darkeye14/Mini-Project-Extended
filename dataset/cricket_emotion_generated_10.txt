@@ -1,0 +1,89 @@
+Input: I felt chills when the match was so intense, i couldn’t sit still.
+Tag: Emotional
+
+Input: My heart stopped as i’ll never forget that last-ball boundary.
+Tag: Emotional
+
+Input: Tears rolled down as i felt every heartbeat during the nail-biting finish.
+Tag: Emotional
+
+Input: Unbelievable scenes when the captain’s smile after winning was unforgettable.
+Tag: Emotional
+
+Input: Tears rolled down as the match was so intense, i couldn’t sit still.
+Tag: Emotional
+
+Input: Unbelievable scenes when i felt every heartbeat during the nail-biting finish.
+Tag: Emotional
+
+Input: As per the rules, the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: Statistically, batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: Typically, a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: Typically, batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: It is observed that the square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional
+
+Input: It is observed that a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: I felt chills when what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: Unbelievable scenes when the national anthem before the match gave me chills.
+Tag: Emotional
+
+Input: I felt chills when that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: A cricket fact: the third umpire sits in the control room with monitors.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when the crowd chanting his name gave me goosebumps.
+Tag: Emotional
+
+Input: Statistically, a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: It is observed that the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: As per the rules, the pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: It is observed that the ball was swinging in the overcast conditions.
+Tag: Non Emotional
+
+Input: I felt chills when i felt every heartbeat during the nail-biting finish.
+Tag: Emotional
+
+Input: What a game! he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: My heart stopped as the fans cried after their team was knocked out.
+Tag: Emotional
+
+Input: It is observed that umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: As per the rules, cricket matches can be paused due to bad light.
+Tag: Non Emotional
+
+Input: What a game! every single over had me clenching my fists.
+Tag: Emotional
+
+Input: My heart stopped as the crowd chanting his name gave me goosebumps.
+Tag: Emotional
+
+Input: It is observed that a cricket ground has a pitch in the center of the field.
+Tag: Non Emotional
+
+Input: Typically, the square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional

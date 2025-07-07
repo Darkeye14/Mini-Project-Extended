@@ -1,0 +1,89 @@
+Input: It is observed that the toss decision can greatly impact the match.
+Tag: Non Emotional
+
+Input: A cricket fact: a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: I felt chills when he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: Typically, the square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional
+
+Input: A cricket fact: the pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: As per the rules, spin bowlers rely on variations like googly and doosra.
+Tag: Non Emotional
+
+Input: Statistically, the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: I felt chills when i screamed when he smashed the ball into the stands!
+Tag: Emotional
+
+Input: I felt chills when i felt every heartbeat during the nail-biting finish.
+Tag: Emotional
+
+Input: Unbelievable scenes when i screamed when he smashed the ball into the stands!
+Tag: Emotional
+
+Input: Tears rolled down as he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: I felt chills when the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: Typically, umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: My heart stopped as that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: I felt chills when that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: I felt chills when what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: Statistically, a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: Tears rolled down as the captain’s smile after winning was unforgettable.
+Tag: Emotional
+
+Input: As per the rules, batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: I felt chills when that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: What a game! that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: Unbelievable scenes when the crowd chanting his name gave me goosebumps.
+Tag: Emotional
+
+Input: A cricket fact: a t20 match usually lasts for around three hours.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when that celebration after the victory was heartwarming.
+Tag: Emotional
+
+Input: Statistically, a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: Typically, the bowler changed ends after the over.
+Tag: Non Emotional
+
+Input: Statistically, spin bowlers rely on variations like googly and doosra.
+Tag: Non Emotional
+
+Input: As per the rules, the ball was swinging in the overcast conditions.
+Tag: Non Emotional
+
+Input: A cricket fact: the ball was swinging in the overcast conditions.
+Tag: Non Emotional

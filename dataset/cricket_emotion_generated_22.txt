@@ -1,0 +1,89 @@
+Input: Tears rolled down as the crowd chanting his name gave me goosebumps.
+Tag: Emotional
+
+Input: Unbelievable scenes when every single over had me clenching my fists.
+Tag: Emotional
+
+Input: I felt chills when that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: My heart stopped as he dropped the catch and i screamed in disbelief!
+Tag: Emotional
+
+Input: Typically, umpire reviews are limited in number per team.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: As per the rules, umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: Typically, a yorker is a ball pitched right at the batsman's feet.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when the match was so intense, i couldn’t sit still.
+Tag: Emotional
+
+Input: As per the rules, umpires wear white coats in test matches.
+Tag: Non Emotional
+
+Input: Unbelievable scenes when when the underdog team won, i jumped in excitement.
+Tag: Emotional
+
+Input: Typically, the third umpire sits in the control room with monitors.
+Tag: Non Emotional
+
+Input: What a game! the captain’s smile after winning was unforgettable.
+Tag: Emotional
+
+Input: Tears rolled down as that emotional farewell speech made everyone tear up.
+Tag: Emotional
+
+Input: A cricket fact: umpire reviews are limited in number per team.
+Tag: Non Emotional
+
+Input: Statistically, the pitch was dry and cracked by the afternoon.
+Tag: Non Emotional
+
+Input: Statistically, a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: Typically, umpire reviews are limited in number per team.
+Tag: Non Emotional
+
+Input: As per the rules, the toss decision can greatly impact the match.
+Tag: Non Emotional
+
+Input: As per the rules, the toss decision can greatly impact the match.
+Tag: Non Emotional
+
+Input: What a game! what a moment when she took that diving catch!
+Tag: Emotional
+
+Input: I felt chills when the national anthem before the match gave me chills.
+Tag: Emotional
+
+Input: As per the rules, batsmen often wear helmets for protection.
+Tag: Non Emotional
+
+Input: Tears rolled down as every single over had me clenching my fists.
+Tag: Emotional
+
+Input: As per the rules, the square leg umpire monitors run-outs and stumpings.
+Tag: Non Emotional
+
+Input: Statistically, a cricket ball typically weighs between 155.9 and 163 grams.
+Tag: Non Emotional
+
+Input: As per the rules, cricket matches can be paused due to bad light.
+Tag: Non Emotional
+
+Input: What a game! the thrill of a tight run chase is unmatched.
+Tag: Emotional
+
+Input: I felt chills when every single over had me clenching my fists.
+Tag: Emotional
+
+Input: Unbelievable scenes when i screamed when he smashed the ball into the stands!
+Tag: Emotional
