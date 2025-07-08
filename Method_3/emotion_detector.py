@@ -20,31 +20,59 @@ nltk.download('stopwords')
 
 class EmotionDetector:
     def __init__(self):
-        # Enhanced TF-IDF vectorizer to better capture emotional content
+        # Cricket-specific stop words to keep (these would normally be removed by default)
+        cricket_keep_words = [
+            'six', 'four', 'wicket', 'century', 'fifty', 'hundred', 'boundary',
+            'dismissal', 'catch', 'runout', 'stumping', 'appeal', 'review', 'drs',
+            'powerplay', 'death', 'overs', 'innings', 'partnership', 'chase', 'target',
+            'ipl', 'worldcup', 't20', 'odi', 'test', 'nidahas', 'asia', 'trophy'
+        ]
+        
+        # Get default English stop words and remove cricket terms we want to keep
+        stop_words = [word for word in stopwords.words('english') if word not in cricket_keep_words]
+        
+        # Add cricket-specific features
+        self.cricket_terms = [
+            'six', 'four', 'wicket', 'century', 'fifty', 'hundred', 'duck',
+            'maiden', 'hattrick', 'noball', 'wide', 'lbw', 'bouncer', 'yorker',
+            'googly', 'doosra', 'slog', 'sweep', 'drive', 'pull', 'hook', 'cut',
+            'cover', 'midwicket', 'longon', 'fineleg', 'thirdman', 'gully', 'slip',
+            'powerplay', 'deathovers', 'superover', 'drs', 'umpire', 'referral'
+        ]
+        
+        # Indian cricket context
+        self.indian_players = [
+            'kohli', 'rohit', 'rahul', 'pandya', 'bumrah', 'bhuvi', 'chahal',
+            'dhoni', 'dravid', 'sachin', 'ganguly', 'dada', 'dhonis', 'kohlis',
+            'rohit', 'rohit', 'rahul', 'pant', 'iyer', 'ishan', 'surya', 'sky',
+            'bumrah', 'shami', 'siraj', 'jadeja', 'ashwin', 'axar', 'chahal', 'kuldeep'
+        ]
+        
+        # Enhanced TF-IDF vectorizer with cricket context and emotional features
         self.vectorizer = TfidfVectorizer(
-            max_features=10000,  # Limit vocabulary size to top 10,000 features
-            ngram_range=(1, 2),  # Consider both unigrams and bigrams
-            stop_words=stopwords.words('english'),
-            min_df=2,            # Minimum document frequency
-            max_df=0.85,         # Maximum document frequency (to filter out too common terms)
+            max_features=20000,  # Increased to accommodate cricket and emotional terms
+            ngram_range=(1, 3),  # Using unigrams, bigrams, and trigrams
+            stop_words=stop_words,
+            min_df=1,           # Reduced to capture more rare emotional terms
+            max_df=0.85,        # Reduced to filter out very common terms
             strip_accents='unicode',
             analyzer='word',
-            token_pattern=r'\b[^\d\W]+\b'  # Better token pattern
+            token_pattern=r'(?u)\b\w+\b'  # More permissive token pattern
         )
         
-        # Enhanced Random Forest with better parameters for text classification
+        # Enhanced Random Forest with better parameters for emotion detection
         self.model = RandomForestClassifier(
-            n_estimators=300,           # Increased number of trees
-            max_depth=30,                # Increased max depth
-            min_samples_split=3,         # Reduced to capture more patterns
-            min_samples_leaf=2,          # Minimum samples required at each leaf
-            max_features='sqrt',         # Number of features to consider at each split
-            bootstrap=True,              # Bootstrap samples when building trees
-            oob_score=True,              # Use out-of-bag samples for validation
-            random_state=42,             # For reproducibility
-            class_weight='balanced',     # Handle class imbalance
-            n_jobs=-1,                   # Use all CPU cores
-            verbose=1                    # Show training progress
+            n_estimators=500,  # Increased number of trees
+            max_depth=50,      # Increased max depth for complex patterns
+            min_samples_split=3,  # Reduced to capture more nuanced patterns
+            min_samples_leaf=1,   # Reduced to capture more nuanced patterns
+            class_weight='balanced_subsample',  # Better handling of class imbalance
+            random_state=42,
+            n_jobs=-1,  # Use all cores
+            oob_score=True,  # Use out-of-bag samples to estimate generalization accuracy
+            verbose=1,
+            max_features='sqrt',  # Number of features to consider at every split
+            min_impurity_decrease=0.0001  # More sensitive to small improvements
         )
         self.is_trained = False
 
@@ -52,36 +80,145 @@ class EmotionDetector:
         # 1. Convert to string and lowercase
         text = str(text).lower().strip()
         
-        # 2. Remove URLs and email addresses
+        # 2. Add space around exclamation and question marks for better tokenization
+        text = re.sub(r'([!?]+)', r' \1 ', text)
+        
+        # 3. Standardize cricket terms and player names
+        text = self._standardize_cricket_terms(text)
+        
+        # 4. Add emphasis tokens for emotional words and phrases
+        emotional_phrases = [
+            (r'\b(stunn(ing|ed)?|amaz(ing|ed)|wow|incredible|unbelievable|fantastic|brilliant|superb|outstanding|exceptional|extraordinary|phenomenal|mind.?blow(ing)?|speechless|awe(some)?|thrill(ing|ed)|excit(ing|ed))\b', ' _emph_ '),
+            (r'\b(goosebumps|chill(s|ed)|shiver(ed|ing)|tear(s|ing)|cry(ing)?|emotional|overwhelm(ed|ing))\b', ' _emot_ '),
+            (r'\b(love|lovely|adore|adored|passion(ate)?|heart|soul|spirit|pride|proud|honor|honour|respect|admire|cherish|treasure|value|appreciate|enjoy|delight(ed|ful)|pleasur(e|able)|happy|happiness|joy(ful)?|ecstatic|bliss(ful)?|elat(ed|ing)|jubilant|overjoyed|thrilled|euphoric|rapturous|gleeful|jovial|jolly|merry|cheer(ful|y)|glad|content(ed)?|satisf(y|ied)|gratif(y|ied)|fulfill(ed|ing)|triumph(ant)?|victor(y|ious)|win(ning)?|succeed|success(ful)?|achieve(ment)?|accomplish(ed|ment)?|excel(lent|led)?|superior|best|great(est)?|wonder(ful|ous)|marvel(ous|lous)|splendid|glorious|magnificent|majestic|sublime|divine|heavenly|perfect|flawless|impeccable|exquisite|elegant|beautiful|gorgeous|stunning|breathtaking|mesmeriz(ing|ed)|captivat(ing|ed)|enchant(ing|ed)|charm(ing|ed)|allur(ing|ed)|fascinat(ing|ed)|enthrall(ing|ed)|spellbind(ing|ed)|hypnotiz(ing|ed)|transfix(ed|ing))\b', ' _pos_emot_ '),
+            (r'\b(hate|hatred|disgust(ing|ed)|repulsive|revolting|sickening|nauseating|vile|loathsome|abhorrent|abominable|detestable|despicable|contemptible|disgraceful|shameful|deplorable|lamentable|regrettable|unfortunate|sad|sadden(ed|ing)|unhappy|miserable|wretched|sorrow(ful)?|grief|griev(e|ing)|heartbroken|heartbreak(ing)?|anguish(ed)?|distress(ed|ing)|despair(ing)?|hopeless|desperate|devastat(ing|ed)|crush(ed|ing)|destroy(ed)?|ruin(ed)?|wreck(ed)?|demolish(ed)?|annihilat(ed|ing)|obliterat(ed|ing)|eradicate(d|ing)|eliminate(d|ing)|remove(d)?|erase(d)?|delete(d)?|destroy(ed)?|kill(ed|ing)?|murder(ed|ing)?|slay(ing|n)?|assassinat(ed|ing)|execute(d|ing)|hang(ed|ing)|lynch(ed|ing)|torture(d|ing)|torment(ed|ing)|abuse(d|ing)|mistreat(ed|ing)|maltreat(ed|ing)|ill.treat(ed|ing)|harm(ed|ing)|hurt(ing)?|injure(d|ing)|wound(ed|ing)|damage(d|ing)|ruin(ed|ing)|wreck(ed|ing)|destroy(ed|ing)|demolish(ed|ing)|annihilat(ed|ing)|obliterat(ed|ing)|eradicate(d|ing)|eliminate(d|ing)|remove(d)?|erase(d)?|delete(d)?|kill(ed|ing)?|murder(ed|ing)?|slay(ing|n)?|assassinat(ed|ing)|execute(d|ing)|hang(ed|ing)|lynch(ed|ing)|torture(d|ing)|torment(ed|ing)|abuse(d|ing)|mistreat(ed|ing)|maltreat(ed|ing)|ill.treat(ed|ing)|harm(ed|ing)|hurt(ing)?|injure(d|ing)|wound(ed|ing)|damage(d|ing))\b', ' _neg_emot_ ')
+        ]
+        
+        for pattern, replacement in emotional_phrases:
+            text = re.sub(pattern, f' {replacement} ', text, flags=re.IGNORECASE)
+        
+        # 3. Remove URLs and email addresses
         text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
         text = re.sub(r'\S+@\S+', '', text)
         
-        # 3. Remove user @ mentions and hashtags
-        text = re.sub(r'(@\w+|#\w+)', '', text)
+        # 4. Remove user @ mentions but preserve cricket hashtags
+        text = re.sub(r'@\w+', '', text)
         
-        # 4. Keep emotional punctuation but pad with spaces
-        text = re.sub(r'([!?]+)', r' \1 ', text)  # Keep multiple ! or ? as they indicate emphasis
+        # 5. Handle cricket-specific emoticons and expressions
+        text = re.sub(r'\b6\b', ' six ', text)  # '6' -> 'six'
+        text = re.sub(r'\b4\b', ' four ', text)  # '4' -> 'four'
+        text = re.sub(r'\b1\b', ' one ', text)   # '1' -> 'one'
         
-        # 5. Handle common contractions and special cases
-        text = re.sub(r"won't", 'will not', text)
-        text = re.sub(r"can'?t", 'can not', text)
-        text = re.sub(r"n't", ' not', text)
-        text = re.sub(r"'re", ' are', text)
-        text = re.sub(r"'s", ' is', text)
-        text = re.sub(r"'d", ' would', text)
-        text = re.sub(r"'ll", ' will', text)
-        text = re.sub(r"'t", ' not', text)
-        text = re.sub(r"'ve", ' have', text)
-        text = re.sub(r"'m", ' am', text)
+        # 6. Keep emotional punctuation but pad with spaces
+        text = re.sub(r'([!?]+)', r' \1 ', text)  # Keep multiple ! or ?
         
-        # 6. Remove special characters but keep basic punctuation that might indicate emotion
+        # 7. Handle common contractions and cricket-specific abbreviations
+        contractions = {
+            r"won't": 'will not',
+            r"can'?t": 'can not',
+            r"n't": ' not',
+            r"'re": ' are',
+            r"'s": ' is',
+            r"'d": ' would',
+            r"'ll": ' will',
+            r"'t": ' not',
+            r"'ve": ' have',
+            r"'m": ' am',
+            # Cricket specific
+            r'\bwk(t)?\b': 'wicket',
+            r'\b4s\b': 'fours',
+            r'\b6s\b': 'sixes',
+            r'\bvs\b': 'versus',
+            r'\bvs\.': 'versus',
+            r'\bno\s*\d+': 'number',  # no 1 -> number
+        }
+        
+        for pattern, replacement in contractions.items():
+            text = re.sub(pattern, replacement, text)
+        
+        # 8. Handle elongated words with cricket context
+        def reduce_elongated(word):
+            # Don't reduce if it's a cricket term or player name
+            if (word in self.cricket_terms or 
+                word in self.indian_players or
+                any(term in word for term in self.cricket_terms) or
+                any(player in word for player in self.indian_players if len(player) > 3)):
+                return word
+            # Reduce to max 3 repeated chars
+            return re.sub(r'(\w)(\1{2,})', r'\1\1\1', word)
+        
+        # 9. Apply to each word in the text
+        words = text.split()
+        words = [reduce_elongated(word) for word in words]
+        
+        # 10. Add emphasis tokens for emotional cues
+        for i, word in enumerate(words):
+            # Add emphasis for repeated letters in emotional words
+            if re.search(r'(\w)\1{2,}', word):
+                words[i] = f"{word} _emph_"
+            # Add emphasis for cricket action words
+            if any(term in word for term in ['six', 'four', 'wicket', 'out', 'catch', 'stump']):
+                words[i] = f"{word} _cricket_action_"
+            # Add emphasis for player mentions
+            if any(player in word for player in self.indian_players if len(player) > 3):
+                words[i] = f"{word} _player_"
+        
+        # 11. Remove special characters but keep basic punctuation
+        text = ' '.join(words)
         text = re.sub(r'[^a-z0-9\s.?!]', ' ', text)
         
-        # 7. Handle elongated words (e.g., 'soooo' -> 'so')
-        text = re.sub(r'(.)\1{2,}', r'\1', text)
-        
-        # 8. Remove extra whitespace and newlines
+        # 12. Remove extra whitespace and newlines
         text = ' '.join(text.split())
+        
+        return text
+    
+    def _standardize_cricket_terms(self, text):
+        """Standardize cricket terms and player names"""
+        # Standardize player names
+        player_mapping = {
+            'vk': 'virat kohli',
+            'king kohli': 'virat kohli',
+            'kingkohli': 'virat kohli',
+            'rohit sharma': 'rohit sharma',
+            'hitman': 'rohit sharma',
+            'hit man': 'rohit sharma',
+            'msd': 'ms dhoni',
+            'thala': 'ms dhoni',
+            'captain cool': 'ms dhoni',
+            'jaddu': 'ravindra jadeja',
+            'sir jadeja': 'ravindra jadeja',
+            'boom boom': 'jasprit bumrah',
+            'bumrah': 'jasprit bumrah',
+            'bhuvi': 'bhuvneshwar kumar',
+            'chiku': 'virat kohli',
+            'cheeku': 'virat kohli',
+        }
+        
+        # Standardize cricket terms
+        cricket_terms = {
+            't20i': 't20',
+            't20i': 't20',
+            'odi': 'one day',
+            'test match': 'test',
+            'test matches': 'test',
+            'world cup': 'worldcup',
+            'worldcup': 'worldcup',
+            'ipl': 'indian premier league',
+            'iplt20': 'indian premier league',
+            't20 worldcup': 't20 worldcup',
+            't20wc': 't20 worldcup',
+            'wt20': 't20 worldcup',
+            'icc': 'international cricket council',
+            'bcci': 'board of control for cricket in india',
+            'nca': 'national cricket academy',
+            'ranji': 'ranji trophy',
+            'vijay hazare': 'vijay hazare trophy',
+            'sherf': 'sherf rutherford'
+        }
+        
+        # Apply player name standardization
+        for term, replacement in {**player_mapping, **cricket_terms}.items():
+            text = re.sub(r'\b' + re.escape(term) + r'\b', replacement, text, flags=re.IGNORECASE)
         
         return text
 
