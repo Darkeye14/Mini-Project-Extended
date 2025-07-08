@@ -160,118 +160,288 @@ class EmotionDetectorLR:
     def load_dataset(self, dataset_path):
         texts = []
         labels = []
+        total_files = 0
+        total_examples = 0
+        
+        # Count total files first
+        all_files = [f for f in os.listdir(dataset_path) if f.endswith('.txt')]
+        total_files = len(all_files)
+        print(f"Found {total_files} dataset files")
         
         try:
-            # First, try to load from the provided dataset
-            for filename in os.listdir(dataset_path):
-                if filename.endswith('.txt'):
-                    with open(os.path.join(dataset_path, filename), 'r', encoding='utf-8', errors='ignore') as file:
-                        content = file.read()
-                        # Handle both 'Input:' and 'Input :' variations
-                        examples = re.split(r'\nInput\s*:', content)[1:]
-                        for example in examples:
-                            if 'Tag:' in example or 'Tag :' in example:
-                                try:
-                                    # Handle both 'Tag:' and 'Tag :' variations
-                                    parts = re.split(r'Tag\s*:', example, 1)
-                                    if len(parts) == 2:
-                                        text_part, tag_part = parts
-                                        text = text_part.strip()
-                                        # Get the first line after Tag: as the tag
-                                        tag = tag_part.split('\n')[0].strip()
-                                        # Normalize tag format
-                                        if tag.lower() in ['emotional', 'emotion']:
-                                            tag = 'Emotional'
-                                        elif tag.lower() in ['non emotional', 'non-emotional', 'nonemotional']:
-                                            tag = 'Non Emotional'
-                                            
-                                        if text and tag in ['Emotional', 'Non Emotional']:
-                                            cleaned_text = self.clean_text(text)
-                                            texts.append(cleaned_text)
-                                            labels.append(1 if tag == 'Emotional' else 0)
-                                except Exception as e:
-                                    print(f"Error processing example in {filename}: {e}")
-                                    print(f"Problematic example: {example[:200]}...")
-                                    continue
+            # Sort files to ensure consistent ordering
+            all_files.sort()
             
-            # If we have both classes, return the loaded dataset
+            for filename in all_files:
+                file_path = os.path.join(dataset_path, filename)
+                with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
+                    content = file.read()
+                    # Split by 'Input:' or 'Input:' with any whitespace
+                    examples = re.split(r'\nInput\s*:', content)
+                    # First element is empty or content before first Input:
+                    if examples and not examples[0].strip():
+                        examples = examples[1:]
+                    
+                    print(f"\nProcessing {filename} - Found {len(examples)} examples")
+                    file_examples = 0
+                    
+                    for example in examples:
+                        if not example.strip():
+                            continue
+                            
+                        # Extract text and tag using more flexible regex
+                        tag_match = re.search(r'Tag\s*:\s*([^\n]*)', example, re.IGNORECASE)
+                        if not tag_match:
+                            print(f"  - Warning: Could not find Tag in example: {example[:100]}...")
+                            continue
+                            
+                        # Get the text part (everything before Tag:)
+                        text = example[:tag_match.start()].strip()
+                        tag = tag_match.group(1).strip()
+                        
+                        # Debug print for first few examples
+                        if total_examples < 3:  # Print first 3 examples for verification
+                            print(f"  - Example {total_examples + 1}:")
+                            print(f"    Text: {text[:80]}{'...' if len(text) > 80 else ''}")
+                            print(f"    Raw Tag: '{tag}'")
+                        
+                        # Normalize tag - handle different cases, whitespace, and hyphenation
+                        tag_lower = tag.lower().strip()
+                        
+                        # Debug output for the first few tags
+                        if total_examples < 3:  # Only show for first few examples
+                            print(f"    Raw tag: '{tag}'")
+                            print(f"    Lowercase tag: '{tag_lower}'")
+                        
+                        # Handle different tag formats
+                        if 'emotional' in tag_lower:
+                            if tag_lower.startswith('non') or 'non' in tag_lower.split():
+                                label = 0  # Non Emotional
+                                normalized_tag = 'Non Emotional'
+                                if total_examples < 3:
+                                    print(f"    Classified as: {normalized_tag} (label: {label})")
+                            else:
+                                label = 1  # Emotional
+                                normalized_tag = 'Emotional'
+                                if total_examples < 3:
+                                    print(f"    Classified as: {normalized_tag} (label: {label})")
+                        else:
+                            print(f"  - Warning: Unrecognized tag format: '{tag}'. Expected 'Emotional' or 'Non Emotional'. Skipping example.")
+                            continue  # Skip examples with invalid tags
+                        
+                        if text:
+                            cleaned_text = self.clean_text(text)
+                            texts.append(cleaned_text)
+                            labels.append(label)
+                            total_examples += 1
+                            file_examples += 1
+                            
+                            if total_examples <= 3:  # Print classification of first 3 examples
+                                print(f"    Classified as: {normalized_tag} (label: {label})")
+                    
+                    print(f"  - Successfully processed {file_examples} examples from {filename}")
+            
+            print(f"\nTotal examples loaded: {len(texts)}")
+            print(f"Emotional examples: {sum(labels)}")
+            print(f"Non-emotional examples: {len(labels) - sum(labels)}")
+            
             if len(set(labels)) >= 2 and len(texts) >= 2:
                 return pd.DataFrame({
                     'text': texts,
                     'label': labels
                 })
-            
-            print("Warning: Insufficient data or only one class found in the dataset. Using fallback dataset.")
-            
+            else:
+                print("Warning: Insufficient data or only one class found in the dataset.")
+                print(f"Total examples: {len(texts)}, Classes found: {set(labels)}")
+                
+                # If we have examples but only one class, print some examples
+                if len(texts) > 0:
+                    print("\nFirst few examples and their labels:")
+                    for i in range(min(5, len(texts))):
+                        print(f"  {i+1}. Label: {labels[i]}, Text: {texts[i][:80]}...")
+                
         except Exception as e:
             print(f"Error loading dataset: {str(e)}")
+            import traceback
+            traceback.print_exc()
         
-        # Fallback to a balanced dummy dataset
+        # Fallback to a balanced dummy dataset if loading fails
+        print("\nUsing fallback dataset")
         return pd.DataFrame({
             'text': [
                 'I am so happy today!', 
                 'This is a neutral statement.',
                 'I feel really excited about this!',
-                'The weather is normal today.',
-                'I am feeling absolutely wonderful!',
-                'This is a regular day.',
-                'I am overjoyed with the results!',
-                'The meeting was quite ordinary.'
+                'The weather is normal today.'
             ],
-            'label': [1, 0, 1, 0, 1, 0, 1, 0]  # Alternating emotional and non-emotional
+            'label': [1, 0, 1, 0]
         })
 
     def train(self, dataset_path):
         try:
+            print("\n" + "="*50)
+            print("STARTING MODEL TRAINING")
+            print("="*50)
+            
+            # Load the dataset with detailed logging
+            print("\nLoading dataset...")
             df = self.load_dataset(dataset_path)
             
-            # Ensure we have at least 2 classes and enough samples
-            if len(df['label'].unique()) < 2:
-                raise ValueError("Dataset must contain at least 2 classes (Emotional and Non-Emotional)")
-                
-            if len(df) < 2:
-                raise ValueError("Dataset must contain at least 2 samples")
+            if df is None or len(df) == 0:
+                error_msg = "Error: No data to train on."
+                print(error_msg)
+                return 0.0, error_msg
             
-            X = df['text']
-            y = df['label']
+            # Check class distribution
+            class_dist = df['label'].value_counts()
+            print("\nClass distribution in training data:")
+            print(f"- Emotional: {class_dist.get(1, 0)} examples")
+            print(f"- Non Emotional: {class_dist.get(0, 0)} examples")
             
-            # If we have very few samples, use all for training
-            if len(df) <= 10:
-                X_train, X_test, y_train, y_test = X, X, y, y
-            else:
+            if len(class_dist) < 2:
+                error_msg = "Error: Need both classes for training"
+                print(error_msg)
+                return 0.0, error_msg
+            
+            # Adjust test size based on dataset size
+            test_size = 0.2  # Default test size
+            min_test_size = 2  # Minimum number of test samples per class
+            
+            # Calculate minimum required test size
+            min_required_test = min(class_dist) * 0.2
+            if min_required_test < min_test_size:
+                test_size = min_test_size * 2 / len(df)  # Adjust test size for small datasets
+                test_size = min(0.3, test_size)  # Don't use more than 30% for test
+                print(f"\nAdjusting test size to {test_size:.2f} for small dataset")
+            
+            # Split the dataset
+            print("\nSplitting dataset...")
+            try:
                 X_train, X_test, y_train, y_test = train_test_split(
-                    X, y, test_size=0.2, random_state=42, stratify=y
+                    df['text'], 
+                    df['label'], 
+                    test_size=test_size,
+                    random_state=42, 
+                    stratify=df['label']
+                )
+            except ValueError as ve:
+                # Fallback to non-stratified split if stratification fails
+                print(f"Warning: Stratified split failed: {ve}. Using random split.")
+                X_train, X_test, y_train, y_test = train_test_split(
+                    df['text'], 
+                    df['label'], 
+                    test_size=test_size,
+                    random_state=42
                 )
             
+            print(f"Training on {len(X_train)} examples, validating on {len(X_test)} examples")
+            
+            # Print some training examples
+            print("\nSample training examples:")
+            for i in range(min(3, len(X_train))):
+                label = 'Emotional' if y_train.iloc[i] == 1 else 'Non Emotional'
+                print(f"  {i+1}. [{label}] {X_train.iloc[i][:80]}{'...' if len(X_train.iloc[i]) > 80 else ''}")
+            
+            # Train the model
+            print("\nTraining model...")
             self.pipeline.fit(X_train, y_train)
-            self.is_trained = True
             
+            # Make predictions
+            print("\nEvaluating model...")
             y_pred = self.pipeline.predict(X_test)
-            accuracy = accuracy_score(y_test, y_pred)
-            report = classification_report(y_test, y_pred, target_names=['Non-Emotional', 'Emotional'])
+            y_pred_proba = self.pipeline.predict_proba(X_test)
             
-            print("\nTraining completed successfully!")
-            print(f"Dataset size: {len(df)} samples")
-            print(f"Classes: {dict(df['label'].value_counts())}")
-            print(f"Accuracy: {accuracy:.2f}")
+            # Print classification report
+            print("\n" + "-"*50)
+            print("MODEL EVALUATION")
+            print("-"*50)
+            
+            # Calculate and print accuracy
+            accuracy = accuracy_score(y_test, y_pred)
+            print(f"\nAccuracy: {accuracy:.4f}")
+            
+            # Print classification report
+            report = classification_report(y_test, y_pred, 
+                                         target_names=['Non Emotional', 'Emotional'],
+                                         digits=4)
+            print("\nClassification Report:")
+            print(report)
+            
+            # Print some example predictions
+            print("\nExample predictions:")
+            for i in range(min(5, len(X_test))):
+                text = X_test.iloc[i] if hasattr(X_test, 'iloc') else X_test[i]
+                true_label = 'Emotional' if (y_test.iloc[i] if hasattr(y_test, 'iloc') else y_test[i]) == 1 else 'Non Emotional'
+                pred_label = 'Emotional' if y_pred[i] == 1 else 'Non Emotional'
+                confidence = max(y_pred_proba[i]) * 100
+                
+                print(f"\nText: {text[:100]}...")
+                print(f"True: {true_label}, Predicted: {pred_label} ({confidence:.1f}% confidence)")
+            
+            # Save the model
+            model_path = os.path.join(os.path.dirname(__file__), 'emotion_model_lr.joblib')
+            joblib.dump(self.pipeline, model_path)
+            print(f"\nModel saved to {model_path}")
+            
+            self.is_trained = True
+            print("\n" + "="*50)
+            print("TRAINING COMPLETED SUCCESSFULLY")
+            print("="*50 + "\n")
             
             return accuracy, report
             
         except Exception as e:
-            print(f"Error during training: {str(e)}")
-            # Return default values in case of error
-            return 0.0, "Training failed - " + str(e)
-    
+            error_msg = f"Error during training: {str(e)}"
+            print("\n" + "!"*50)
+            print("ERROR DURING TRAINING")
+            print("!"*50)
+            print(error_msg)
+            import traceback
+            traceback.print_exc()
+            return 0.0, error_msg
+
     def predict_emotion(self, text):
-        if not self.is_trained:
+        if not hasattr(self, 'is_trained') or not self.is_trained:
             raise Exception("Model not trained yet. Please train the model first.")
-        
-        cleaned_text = self.clean_text(text)
-        proba = self.pipeline.predict_proba([cleaned_text])[0]
-        prediction = self.pipeline.predict([cleaned_text])[0]
-        confidence = max(proba) * 100
-        
-        return "Emotional" if prediction == 1 else "Non-Emotional", confidence
+            
+        try:
+            if not text or not isinstance(text, str):
+                return "Error: Invalid input", 0.0
+                
+            # Clean the input text
+            cleaned_text = self.clean_text(text)
+            
+            if not cleaned_text.strip():
+                return "Error: No valid text after cleaning", 0.0
+            
+            # Debug print
+            print(f"\nPredicting emotion for text: {text}")
+            print(f"Cleaned text: {cleaned_text}")
+            
+            # Make prediction
+            try:
+                prediction = self.pipeline.predict([cleaned_text])
+                probas = self.pipeline.predict_proba([cleaned_text])[0]
+            except Exception as e:
+                print(f"Prediction error: {str(e)}")
+                return f"Error in prediction: {str(e)}", 0.0
+            
+            # Get the predicted class
+            emotion = "Emotional" if prediction[0] == 1 else "Non Emotional"
+            confidence = probas[1] if prediction[0] == 1 else probas[0]
+            
+            # Debug info
+            print(f"Predicted class: {prediction[0]} ({emotion})")
+            print(f"Class probabilities: {probas}")
+            
+            return emotion, confidence
+            
+        except Exception as e:
+            error_msg = f"Error during prediction: {str(e)}"
+            print(error_msg)
+            import traceback
+            traceback.print_exc()
+            return error_msg, 0.0
 
 class EmotionDetectorApp(ctk.CTk):
     def __init__(self):
