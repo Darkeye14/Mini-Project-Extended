@@ -43,26 +43,119 @@ if not os.path.exists(nltk_data):
 
 class EmotionDetectorLR:
     def __init__(self):
+        # Create a custom stop words list
+        custom_stop_words = set(stopwords.words('english'))
+        # Remove words that might be important for emotion detection
+        custom_stop_words -= {'not', 'no', 'never', 'very', 'too', 'so', 'much', 'many', 'more', 'most', 'such', 'only', 'own'}
+        
+        # Cricket terms that should not be in stopwords
+        cricket_terms = {
+            'kohli', 'rohit', 'rahul', 'pandya', 'bumrah', 'bhuvi', 'chahal', 'dhoni', 'dravid', 'sachin', 'ganguly',
+            'virat', 'sharma', 'iyer', 'surya', 'sky', 'jadeja', 'ashwin', 'pant', 'kishan', 'shami', 'siraj', 'kuldeep',
+            'ipl', 't20', 'odi', 'test', 'worldcup', 'world cup', 'six', 'four', 'wicket', 'century', 'fifty', 'duck',
+            'boundary', 'catch', 'stumping', 'runout', 'yorker', 'bouncer', 'googly', 'doosra', 'carrom', 'sweep', 'reverse',
+            'champions', 'trophy', 'toss', 'innings', 'powerplay', 'death over', 'super over', 'man of the match'
+        }
+        
+        # Remove cricket terms from stopwords
+        custom_stop_words = custom_stop_words - cricket_terms
+        
         self.pipeline = Pipeline([
             ('tfidf', TfidfVectorizer(
-                max_features=2000,
-                ngram_range=(1, 2),
-                stop_words=stopwords.words('english')
+                max_features=10000,  # Increased to capture more features
+                ngram_range=(1, 3),  # Using unigrams, bigrams, and trigrams
+                stop_words=list(custom_stop_words),
+                min_df=2,           # Minimum document frequency
+                max_df=0.85,        # Maximum document frequency
+                strip_accents='unicode',
+                analyzer='word',
+                token_pattern=r'(?u)\b\w+\b'  # More permissive token pattern
             )),
             ('classifier', LogisticRegression(
-                max_iter=1000,
+                max_iter=2000,      # Increased iterations for better convergence
                 random_state=42,
-                class_weight='balanced'
+                class_weight='balanced',
+                C=1.0,             # Regularization strength
+                solver='liblinear', # Better for small datasets
+                penalty='l2',       # L2 regularization
+                n_jobs=-1           # Use all cores
             ))
         ])
         self.is_trained = False
 
     def clean_text(self, text):
-        text = str(text).lower()
-        text = re.sub(r'[^a-z\s]', ' ', text)  # Keep only letters and whitespace
-        tokenizer = SimpleTokenizer()
-        tokens = tokenizer.tokenize(text)
-        return ' '.join(tokens)
+        if not isinstance(text, str):
+            text = str(text)
+        
+        # Convert to lowercase
+        text = text.lower()
+        
+        # Handle common contractions and abbreviations
+        contractions = {
+            r"won't": 'will not',
+            r"can't": 'can not',
+            r"n't": ' not',
+            r"'re": ' are',
+            r"'s": ' is',
+            r"'d": ' would',
+            r"'ll": ' will',
+            r"'t": ' not',
+            r"'ve": ' have',
+            r"'m": ' am',
+            r"i'm": 'i am',
+            r"u": 'you',
+            r"ur": 'your',
+            r"thx": 'thanks'
+        }
+        
+        for pattern, replacement in contractions.items():
+            text = re.sub(pattern, replacement, text)
+        
+        # Standardize cricket player names and terms
+        cricket_terms = {
+            r'king kohli': 'virat kohli',
+            r'hitman': 'rohit sharma',
+            r'brohit': 'rohit sharma',
+            r'msd': 'ms dhoni',
+            r'thala': 'ms dhoni',
+            r'captain cool': 'ms dhoni',
+            r'ipl': 'indian premier league',
+            r't20i': 't20 international',
+            r'odi': 'one day international',
+            r'\b4\b': 'four',
+            r'\b6\b': 'six',
+            r'\b2\b': 'two',
+            r'\b1\b': 'one'
+        }
+        
+        for pattern, replacement in cricket_terms.items():
+            text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+        
+        # Handle repeated letters (e.g., 'soooo' -> 'sooo')
+        text = re.sub(r'(.)\1{3,}', r'\1\1\1', text)
+        
+        # Add space around punctuation for better tokenization
+        text = re.sub(r'([!?])\1+', r' \1 ', text)  # Multiple ! or ?
+        text = re.sub(r'([.,!?()])', r' \1 ', text)  # Single punctuation
+        
+        # Clean up extra spaces
+        text = re.sub(r'\s+', ' ', text).strip()
+        
+        # Add special tokens for emotional emphasis
+        emotional_phrases = [
+            (r'\b(stunn(ing|ed)?|amaz(ing|ed)|wow|incredible|unbelievable|fantastic|brilliant|superb|outstanding|exceptional|extraordinary|phenomenal|mind.?blow(ing)?|speechless|awe(some)?|thrill(ing|ed)|excit(ing|ed))\b', ' _strong_pos_ '),
+            (r'\b(goosebumps|chill(s|ed)|shiver(ed|ing)|tear(s|ing)|cry(ing)?|emotional|overwhelm(ed|ing))\b', ' _phys_emot_ '),
+            (r'\b(love|lovely|adore|adored|passion(ate)?|heart|soul|spirit|pride|proud|honor|honour|respect|admire|cherish|treasure|value|appreciate|enjoy|delight(ed|ful)|pleasur(e|able)|happy|happiness|joy(ful)?|ecstatic|bliss(ful)?|elat(ed|ing)|jubilant|overjoyed|thrilled|euphoric|rapturous|gleeful|jovial|jolly|merry|cheer(ful|y)|glad|content(ed)?|satisf(y|ied)|gratif(y|ied)|fulfill(ed|ing)|triumph(ant)?|victor(y|ious)|win(ning)?|succeed|success(ful)?|achieve(ment)?|accomplish(ed|ment)?|excel(lent|led)?|superior|best|great(est)?|wonder(ful|ous)|marvel(ous|lous)|splendid|glorious|magnificent|majestic|sublime|divine|heavenly|perfect|flawless|impeccable|exquisite|elegant|beautiful|gorgeous|stunning|breathtaking|mesmeriz(ing|ed)|captivat(ing|ed)|enchant(ing|ed)|charm(ing|ed)|allur(ing|ed)|fascinat(ing|ed)|enthrall(ing|ed)|spellbind(ing|ed)|hypnotiz(ing|ed)|transfix(ed|ing))\b', ' _pos_emot_ '),
+            (r'\b(hate|hatred|disgust(ing|ed)|repulsive|revolting|sickening|nauseating|vile|loathsome|abhorrent|abominable|detestable|despicable|contemptible|disgraceful|shameful|deplorable|lamentable|regrettable|unfortunate|sad|sadden(ed|ing)|unhappy|miserable|wretched|sorrow(ful)?|grief|griev(e|ing)|heartbroken|heartbreak(ing)?|anguish(ed)?|distress(ed|ing)|despair(ing)?|hopeless|desperate|devastat(ing|ed)|crush(ed|ing)|destroy(ed)?|ruin(ed)?|wreck(ed)?|demolish(ed)?|annihilat(ed|ing)|obliterat(ed|ing)|eradicate(d|ing)|eliminate(d|ing)|remove(d)?|erase(d)?|delete(d)?|kill(ed|ing)?|murder(ed|ing)?|slay(ing|n)?|assassinat(ed|ing)|execute(d|ing)|hang(ed|ing)|lynch(ed|ing)|torture(d|ing)|torment(ed|ing)|abuse(d|ing)|mistreat(ed|ing)|maltreat(ed|ing)|ill.treat(ed|ing)|harm(ed|ing)|hurt(ing)?|injure(d|ing)|wound(ed|ing)|damage(d|ing))\b', ' _neg_emot_ ')
+        ]
+        
+        for pattern, replacement in emotional_phrases:
+            text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+        
+        # Clean up any extra spaces that might have been introduced
+        text = re.sub(r'\s+', ' ', text).strip()
+        
+        return text
 
     def load_dataset(self, dataset_path):
         texts = []
@@ -74,18 +167,31 @@ class EmotionDetectorLR:
                 if filename.endswith('.txt'):
                     with open(os.path.join(dataset_path, filename), 'r', encoding='utf-8', errors='ignore') as file:
                         content = file.read()
-                        examples = content.split('\nInput: ')[1:]
+                        # Handle both 'Input:' and 'Input :' variations
+                        examples = re.split(r'\nInput\s*:', content)[1:]
                         for example in examples:
-                            if 'Tag: ' in example:
+                            if 'Tag:' in example or 'Tag :' in example:
                                 try:
-                                    text_part, tag_part = example.split('Tag: ', 1)
-                                    text = text_part.strip()
-                                    tag = tag_part.split('\n')[0].strip()
-                                    if text and tag in ['Emotional', 'Non-Emotional']:
-                                        texts.append(self.clean_text(text))
-                                        labels.append(1 if tag == 'Emotional' else 0)
+                                    # Handle both 'Tag:' and 'Tag :' variations
+                                    parts = re.split(r'Tag\s*:', example, 1)
+                                    if len(parts) == 2:
+                                        text_part, tag_part = parts
+                                        text = text_part.strip()
+                                        # Get the first line after Tag: as the tag
+                                        tag = tag_part.split('\n')[0].strip()
+                                        # Normalize tag format
+                                        if tag.lower() in ['emotional', 'emotion']:
+                                            tag = 'Emotional'
+                                        elif tag.lower() in ['non emotional', 'non-emotional', 'nonemotional']:
+                                            tag = 'Non Emotional'
+                                            
+                                        if text and tag in ['Emotional', 'Non Emotional']:
+                                            cleaned_text = self.clean_text(text)
+                                            texts.append(cleaned_text)
+                                            labels.append(1 if tag == 'Emotional' else 0)
                                 except Exception as e:
                                     print(f"Error processing example in {filename}: {e}")
+                                    print(f"Problematic example: {example[:200]}...")
                                     continue
             
             # If we have both classes, return the loaded dataset
