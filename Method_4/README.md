@@ -36,15 +36,6 @@ python -m venv venv
 .\venv\Scripts\activate
 ```
 
-#### Linux/MacOS:
-```bash
-# Create a virtual environment
-python3 -m venv venv
-
-# Activate the virtual environment
-source venv/bin/activate
-```
-
 ### 3. Install Dependencies
 ```bash
 # Upgrade pip
