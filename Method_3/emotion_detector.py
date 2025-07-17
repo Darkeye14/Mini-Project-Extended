@@ -41,7 +41,7 @@ class EmotionDetector:
             'bumrah', 'shami', 'siraj', 'jadeja', 'ashwin', 'axar', 'chahal', 'kuldeep'
         ]
         self.vectorizer = TfidfVectorizer(
-            max_features=20000,
+            max_features=300,
             ngram_range=(1, 3),
             stop_words=stop_words,
             min_df=1,
