@@ -70,33 +70,59 @@ class EmotionDetectorNB:
         texts = []
         labels = []
         try:
-            for filename in os.listdir(dataset_path):
-                if not filename.endswith('.txt'):
-                    continue
-                with open(os.path.join(dataset_path, filename), 'r', encoding='utf-8', errors='ignore') as f:
+            all_files = [f for f in os.listdir(dataset_path) if f.startswith('cricket_emotion_generated_') and f.endswith('.txt')]
+            all_files.sort()
+            
+            for filename in all_files:
+                file_path = os.path.join(dataset_path, filename)
+                with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                     content = f.read()
-                    examples = re.split(r'\nInput\s*:', content)
+                    examples = [e.strip() for e in content.split('Input:') if e.strip()]
+                    
                     for example in examples:
-                        if not example.strip():
+                        tag_line = ''
+                        text_lines = []
+                        
+                        for line in example.split('\n'):
+                            line = line.strip()
+                            if line.startswith('Tag:'):
+                                tag_line = line
+                            elif line:
+                                text_lines.append(line)
+                        
+                        if not tag_line:
                             continue
-                        tag_match = re.search(r'Tag\s*:\s*([^\n]*)', example, re.IGNORECASE)
+                            
+                        tag_match = re.search(r'Tag\s*:\s*(.*?)(?:\n|$)', tag_line, re.IGNORECASE)
                         if not tag_match:
                             continue
-                        text = example[:tag_match.start()].strip()
+                            
                         tag = tag_match.group(1).strip().lower()
-                        if 'emotional' in tag:
+                        text = ' '.join(text_lines).strip()
+                        
+                        if 'emotional' in tag and 'non' not in tag and 'not' not in tag:
                             label = 1
                         elif 'non' in tag and 'emotional' in tag:
                             label = 0
                         else:
                             continue
+                            
                         cleaned_text = self.clean_text(text)
                         if cleaned_text:
                             texts.append(cleaned_text)
                             labels.append(label)
+                            
             if not texts:
                 raise ValueError("No valid examples found in the dataset")
+                
+            unique_labels = set(labels)
+            if len(unique_labels) < 2:
+                print(f"Warning: Only found labels: {unique_labels} in the dataset.")
+                print("Using fallback dataset instead.")
+                return self._create_fallback_dataset()
+                
             return pd.DataFrame({'text': texts, 'label': labels})
+            
         except Exception as e:
             print(f"Error loading dataset: {e}")
             return self._create_fallback_dataset()
@@ -119,9 +145,13 @@ class EmotionDetectorNB:
 
     def train(self, dataset_path):
         try:
+            print("Loading dataset...")
             df = self.load_dataset(dataset_path)
             if df is None or len(df) == 0:
                 return 0.0, "No data to train on"
+            
+            print(f"Loaded {len(df)} examples from the dataset")
+            print(f"Class distribution:\n{df['label'].value_counts()}")
             
             X = df['text']
             y = df['label']
@@ -129,14 +159,22 @@ class EmotionDetectorNB:
             if len(set(y)) < 2:
                 return 0.0, "Need both classes for training"
             
+            print("Splitting dataset into train and test sets...")
             X_train, X_test, y_train, y_test = train_test_split(
                 X, y, test_size=0.2, random_state=42, stratify=y
             )
             
+            print("Training model...")
             self.pipeline.fit(X_train, y_train)
+            
+            print("Evaluating model...")
             y_pred = self.pipeline.predict(X_test)
             accuracy = accuracy_score(y_test, y_pred)
             report = classification_report(y_test, y_pred, target_names=['Non Emotional', 'Emotional'])
+            
+            print(f"Training complete. Accuracy: {accuracy*100:.2f}%")
+            print("Classification Report:")
+            print(report)
             
             model_path = os.path.join(os.path.dirname(__file__), 'emotion_model_nb.joblib')
             joblib.dump(self.pipeline, model_path)
@@ -145,7 +183,10 @@ class EmotionDetectorNB:
             return accuracy, report
             
         except Exception as e:
-            return 0.0, f"Error during training: {str(e)}"
+            import traceback
+            error_msg = f"Error during training: {str(e)}\n{traceback.format_exc()}"
+            print(error_msg)
+            return 0.0, error_msg
 
     def predict_emotion(self, text):
         if not self.is_trained:
@@ -262,19 +303,52 @@ class EmotionDetectorApp(ctk.CTk):
         
         try:
             dataset_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'dataset')
+            print(f"Looking for dataset in: {dataset_path}")
+            
+            if not os.path.exists(dataset_path):
+                error_msg = f"Dataset directory not found at: {dataset_path}"
+                print(error_msg)
+                self.status_var.set("Error: Dataset directory not found")
+                messagebox.showerror("Error", error_msg)
+                return
+                
+            dataset_files = [f for f in os.listdir(dataset_path) 
+                           if f.startswith('cricket_emotion_generated_') and f.endswith('.txt')]
+            
+            if not dataset_files:
+                error_msg = f"No dataset files found in: {dataset_path}"
+                print(error_msg)
+                self.status_var.set("Error: No dataset files found")
+                messagebox.showerror("Error", error_msg)
+                return
+                
+            print(f"Found {len(dataset_files)} dataset files")
+            
             accuracy, report = self.detector.train(dataset_path)
             
             if accuracy > 0:
                 self.analyze_button.configure(state=tk.NORMAL)
-                self.status_var.set(f"Model trained successfully! Accuracy: {accuracy*100:.2f}%")
-                messagebox.showinfo("Training Complete", f"Model trained successfully!\nAccuracy: {accuracy*100:.2f}%")
+                status_msg = f"Model trained successfully! Accuracy: {accuracy*100:.2f}%"
+                self.status_var.set(status_msg)
+                print(status_msg)
+                messagebox.showinfo(
+                    "Training Complete",
+                    f"Model trained successfully!\n\n"
+                    f"Accuracy: {accuracy*100:.2f}%\n\n"
+                    f"Classification Report:\n{report}"
+                )
             else:
+                error_msg = f"Training failed: {report}"
+                print(error_msg)
                 self.status_var.set("Training failed. Using default model.")
-                messagebox.showerror("Training Failed", report)
+                messagebox.showerror("Training Failed", error_msg)
                 
         except Exception as e:
+            import traceback
+            error_msg = f"Error during training: {str(e)}\n\n{traceback.format_exc()}"
+            print(error_msg)
             self.status_var.set("Error during training")
-            messagebox.showerror("Error", f"Failed to train model: {str(e)}")
+            messagebox.showerror("Error", f"Failed to train model: {str(e)}\n\nCheck console for details.")
     
     def analyze_text(self):
         text = self.text_input.get("1.0", tk.END).strip()
